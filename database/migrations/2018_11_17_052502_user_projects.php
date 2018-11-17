@@ -13,7 +13,11 @@ class UserProjects extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_projects', function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('project_id')->unsigned();
+        });
     }
 
     /**
