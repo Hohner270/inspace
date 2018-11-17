@@ -11,11 +11,17 @@ class Projects extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
-        //
+        Schema::create('projects', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->string('title');
+            $table->text('description');
+            $table->string('url');
+            $table->timestamps();
+        });
     }
-
     /**
      * Reverse the migrations.
      *
