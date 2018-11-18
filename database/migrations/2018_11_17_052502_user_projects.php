@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Comments extends Migration
+class UserProjects extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class Comments extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function(Blueprint $table) {
+        Schema::create('user_projects', function(Blueprint $table){
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('comment');
+            $table->integer('project_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 
