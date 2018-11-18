@@ -20,6 +20,8 @@ class Projects extends Migration
             $table->text('description');
             $table->string('url');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
     /**
